@@ -108,6 +108,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
     };
+    
+    const menuBtn = document.querySelector('.menu-hamburger');
+    menuBtn.addEventListener('click',()=>{
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('show')
+    })
+
     let timeNow = new Date();
     timeNow = timeNow.getTime();
     const cards = document.querySelectorAll('.card');
