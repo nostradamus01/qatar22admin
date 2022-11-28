@@ -1,4 +1,4 @@
-const _devMode = false;
+const _devMode = true;
 
 const createUrl = (url) => {
     return (!_devMode ? '/.netlify/functions/api' : '') + url;
