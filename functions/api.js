@@ -25,7 +25,7 @@ const connect = async (callback) => {
 }
 
 router.get('/toLogin', async (req, res) => {
-    res.redirect('https://fifa-ap2022.netlify.app/pages/login.html');
+    res.redirect('https://fifa2022ap.netlify.app/pages/login.html');
 });
 
 router.post('/login', async (req, res) => {
