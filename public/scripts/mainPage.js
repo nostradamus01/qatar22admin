@@ -110,10 +110,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
     
     const menuBtn = document.querySelector('.menu-hamburger');
-    menuBtn.addEventListener('click',()=>{
-        const menu = document.querySelector('.menu');
-        menu.classList.toggle('show')
-    })
+    const headerCmp = document.querySelector('.header');
+    const menu = document.querySelector('.navbar');
+    headerCmp.addEventListener('click', (e) => {
+        // debugger;
+        if (e.target === menuBtn) {
+            menu.classList.toggle('opened');
+            headerCmp.classList.toggle('showed');
+        } else {
+            menu.classList.remove('opened');
+            headerCmp.classList.remove('showed');
+        }
+    });
 
     let timeNow = new Date();
     timeNow = timeNow.getTime();
