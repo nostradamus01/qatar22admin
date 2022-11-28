@@ -79,19 +79,19 @@ app.post('/setResult', async (req, res) => {
 app.post('/getAllData', async (req, res) => {
     await connect(async () => {
         try {
-            // const users = await client.db('fifa22cup').collection('users').find().toArray();
-            // users.forEach(user => {
-            //     delete user.pinCode;
-            // });
+            const users = await client.db('fifa22cup').collection('users').find().toArray();
+            users.forEach(user => {
+                delete user.pinCode;
+            });
             // const teams = await client.db('fifa22cup').collection('teams').find().toArray();
             const matches = await client.db('fifa22cup').collection('matches').find().toArray();
-            // const predictions = await client.db('fifa22cup').collection('predictions').find().toArray();
+            const predictions = await client.db('fifa22cup').collection('predictions').find().toArray();
             const results = await client.db('fifa22cup').collection('results').find().toArray();
             res.send({
-                // allUsers: users,
+                allUsers: users,
                 // allTeams: teams,
                 allMatches: matches,
-                // allPredictions: predictions,
+                allPredictions: predictions,
                 allResults: results
             });
         } catch (e) {

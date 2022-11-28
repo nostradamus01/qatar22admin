@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    cursor: pointer;
 }
 
 .main-content {
@@ -27,7 +28,7 @@ body {
 }
 
 .header.showed {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .navbar {
@@ -44,7 +45,7 @@ body {
 
 .navbar.opened {
     transform: translateX(0);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .menu-hamburger{
@@ -52,9 +53,25 @@ body {
 }
 
 .menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     padding: 20px;
+    color: rgb(255, 255, 255);
 }
+.logo{
+    color: #ad214d;
+    font-weight: 700;
+    font-size: 2em;
 
+}
+.points{
+    text-decoration: none;
+    list-style: none;
+    font-weight: 800;
+    font-size: 2rem;
+}
 .main {
     flex: 1;
     display: flex;

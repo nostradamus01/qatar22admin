@@ -49,8 +49,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const mainContainer = document.querySelector('main.main');
 
     const allData = await (await sendPostRequest(createUrl('/getAllData'), {})).json();
-    const { allMatches, allResults } = allData;
+    const { allMatches, allResults, allUsers, allPredictions } = allData;
     const matches = [];
+    allResults.sort((a,b)=>{
+        return a.matchId - b.matchId;
+    })
     allResults.forEach((result) => {
         const match = allMatches.find(match => match.matchId === result.matchId);
         match.g1 = result.g1;
@@ -59,6 +62,51 @@ document.addEventListener('DOMContentLoaded', async () => {
         matches.push(match);
         mainContainer.insertAdjacentHTML('beforeend', createCard(match));
     });
+
+    const usersWPRED = [];
+    allUsers.forEach((user) => {
+        const pred = allPredictions.filter(prediction=> user.userId === prediction.userId)
+        user.predictions = pred;
+        usersWPRED.push(user)
+    })
+    usersWPRED.forEach((user) => {
+        let allPoints = 0;
+        user.predictions.forEach((prediction) => {
+            const result = allResults.find((result)=> result.matchId === prediction.matchId)
+            if (result.finished === 'yes') {
+               let pg1 = prediction.g1,
+            pg2 = prediction.g2;
+            let og1 = result.g1,
+            og2 = result.g2;
+            let points = 0;
+            if (pg1 === og1 && pg2 === og2) {
+                points = 5;         
+            } else if ((pg1 - pg2) === (og1 - og2)) {
+                points = 2;
+            } else if (((pg1 > pg2) && (og1 > og2)) || ((pg2 > pg1) && (og2 > og1))) {
+                points = 1;
+            }
+            prediction.points = points;
+            allPoints += points; 
+            }
+            
+        })
+        user.points = allPoints;
+    })
+    const pointCMP = document.querySelector('.pointsCMP');
+    usersWPRED.sort((a,b) => {
+        return b.points - a.points;
+    })
+    usersWPRED.forEach((user)=>{
+        pointCMP.insertAdjacentHTML('beforeend',`
+            <tr class="points">
+                <td style="padding-right:30px">${user.name_tr}</td>
+                <td>${user.points}</td>
+            </tr>
+        `)
+    })
+
+
 
     const goalsCount = document.querySelectorAll('.goals-count');
     const box = document.querySelectorAll('.open-numbers');
@@ -113,7 +161,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const headerCmp = document.querySelector('.header');
     const menu = document.querySelector('.navbar');
     headerCmp.addEventListener('click', (e) => {
-        // debugger;
         if (e.target === menuBtn) {
             menu.classList.toggle('opened');
             headerCmp.classList.toggle('showed');
