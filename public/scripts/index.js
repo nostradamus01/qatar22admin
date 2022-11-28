@@ -1,7 +1,7 @@
 const getUserCookie = () => {
     const cookies = document.cookie.split(';');
     const userCookie = cookies.find((cookie) => {
-        return cookie.indexOf('username=') >= 0;
+        return cookie.indexOf('adminusername=') >= 0;
     });
     if (userCookie) {
         const value = userCookie.split('=')[1];

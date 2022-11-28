@@ -1,9 +1,9 @@
-document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+document.cookie = "adminusername=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 const createLoginCookie = (username) => {
     const date = new Date();
     date.setDate(date.getDate() + 4);
-    document.cookie = `username=${username}&true; path=/; expires=${date.toUTCString()}`;
+    document.cookie = `adminusername=${username}&true; path=/; expires=${date.toUTCString()}`;
 }
 
 const getFormData = (form) => {
