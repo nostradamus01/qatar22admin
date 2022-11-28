@@ -1,0 +1,143 @@
+:root {
+    --main-bg: radial-gradient(circle, rgb(50, 50, 50) 0%, rgb(110, 110, 110) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: var(--main-bg);
+}
+
+/* Loader component */
+
+.loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: var(--main-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-cmp {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+}
+
+.circle {
+	border: 5px transparent solid;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 69%;
+}
+
+.cyan {
+	bottom: 0;
+	border-top: 5px #bcbcbc double;
+	animation-delay: 4s;
+	animation: cyan 1.5s infinite;
+}
+
+.cyan:after {
+	position: absolute;
+	content: "";
+	width: 10px;
+	height: 10px;
+	background: #bcbcbc;
+	border-radius: 69%;
+	right: 5px;
+	top: 10px;
+	box-shadow: 0px 0px 20px #bcbcbc;
+}
+
+.magenta {
+	left: 100px;
+	bottom: 87px;
+	border-top: 5px #bcbcbc double;
+	animation: magenta 1.5s infinite;
+}
+
+.magenta:after {
+	position: absolute;
+	content: "";
+	width: 10px;
+	height: 10px;
+	background: #bcbcbc;
+	border-radius: 69%;
+	right: 5px;
+	top: 10px;
+	box-shadow: 0px 0px 20px #bcbcbc;
+}
+
+.yellow {
+	right: 100px;
+	bottom: 87px;
+	border-top: 5px #bcbcbc double;
+	animation: yellow 1.5s infinite;
+}
+
+.yellow:after {
+	position: absolute;
+	content: "";
+	width: 10px;
+	height: 10px;
+	background: #bcbcbc;
+	border-radius: 69%;
+	right: 5px;
+	top: 10px;
+	box-shadow: 0px 0px 20px #bcbcbc;
+}
+
+.loader.hidden {
+    display: none;
+}
+
+.loader.hidden .circle {
+    animation: none;
+}
+
+@keyframes cyan {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes magenta {
+	0% {
+		transform: rotate(240deg);
+	}
+	100% {
+		transform: rotate(600deg);
+	}
+}
+
+@keyframes yellow {
+	0% {
+		transform: rotate(120deg);
+	}
+	100% {
+		transform: rotate(480deg);
+	}
+}
+
+/* ------ */

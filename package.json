@@ -1,0 +1,31 @@
+{
+  "name": "qataradminp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon localServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nostradamus01/qatarAdminP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nostradamus01/qatarAdminP/issues"
+  },
+  "homepage": "https://github.com/nostradamus01/qatarAdminP#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mongodb": "^4.12.1",
+    "serverless-http": "^3.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}

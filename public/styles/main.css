@@ -1,0 +1,142 @@
+.main-content {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px 30px 30px 30px;
+}
+.card{     
+    margin: 0 auto;
+    margin-bottom: 20px;
+    min-width: 300px;
+    max-width: 365px;
+    width: 100%;
+    height: 160px;
+    background: #e5e5e5;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 10px;
+}
+.group{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.clock{
+    color: #000000;
+    padding: 20px 0;
+    text-align: center;
+}
+.line{
+    font-weight: 900;
+    font-size: 1.25em;
+}
+.goals {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+
+}
+.open{
+    position: relative;
+    margin: 0 4px;
+}
+.country{
+    text-align: center;
+}
+.flag{
+    width: 60px;
+    height: 40px;
+}
+.goals-count {
+    border-bottom-width: 3px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    width: 52px;
+    border-radius: 40%;
+    font-size: 1.5em;
+    background-color: #ffffff;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.goals-count.expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 3px solid #000;
+}
+
+.open-numbers {
+    /* background: #727272; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 2px solid black;
+    position: absolute;
+    z-index: 1;
+    top: 44px;
+    background: #000;
+    left: 0;
+    right: 0;
+    max-height: 225px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.open-numbers.hidden {
+    display: none;
+}
+
+.open-numbers::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.open-numbers .goal-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    background: #fff;
+    margin-top: 1px;
+    cursor: pointer;
+    font-size: 1.5em;
+    /* border-radius: 40%; */
+    margin-top: 2px;
+    /* border: 2px solid black; */
+}
+
+.open-numbers .goal-count:hover {
+    background-color: #000000;  
+    color: #ad214d;
+}
